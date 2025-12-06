@@ -4,10 +4,18 @@ library = []
 def add_book(): 
     # Input title, author -> append to library list 
     print("Book added successfully.") 
- 
-def view_books(): 
-    # Loop through library list and print details 
-    pass 
+def view_books():
+    print("\n--- DANH SÁCH TẤT CẢ SÁCH ---")
+    if not library:
+        print("Hiện tại thư viện chưa có sách nào.")
+        return
+    
+    print(f"{'STT':<3} | {'Tiêu đề':<25} | {'Tác giả':<20} | Trạng thái")
+    print("-" * 65)
+    for i, book in enumerate(library, 1):
+        status = "Có sẵn" if book['is_available'] else "Đã mượn"
+        print(f"{i:<3} | {book['title']:<25} | {book['author']:<20} | {status}") 
+
  
 def search_book(): 
     # Input search query 
